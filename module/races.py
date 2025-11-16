@@ -3,8 +3,6 @@ import streamlit as st
 import pandas as pd
 from datetime import timedelta
 
-from module.utils import format_timedelta
-
 st.cache_data(ttl=timedelta(days=1))
 def load_race_result(gp_id:int, session:str="R"):
     # Initialisation de la course
