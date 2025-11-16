@@ -1,3 +1,4 @@
+import fastf1
 import streamlit as st
 
 # Page configuration
@@ -19,10 +20,10 @@ st.markdown(
 )
 
 if 'my_season' not in st.session_state:
-    st.session_state.my_season = 0
+    st.session_state.my_season = 2025
 
 if 'last_round' not in st.session_state:
-    st.session_state.last_round = 0
+    st.session_state.last_round = 1
 
 pages = {
     "Home": [
@@ -30,9 +31,8 @@ pages = {
         st.Page("./pages/season.py", title="Calendar"),
     ],
     "Results": [
+        st.Page("./pages/standings.py", title="Standings"),
         st.Page("./pages/races.py", title="Race results"),
-        st.Page("./pages/drivers.py", title="Driver standings"),
-        st.Page("./pages/teams.py", title="Team standings"),
     ],
     "Analysis": [
         st.Page("./pages/stand.py", title="Stand analysis"),

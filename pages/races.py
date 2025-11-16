@@ -25,6 +25,7 @@ with tab1:
     if sel_race:
         race_id = races[races['Country'] == sel_race].iloc[0, 0]
         race_result = load_race_result(gp_id=(race_id-1), session="R")
+        st.toast(f'Race result loaded', icon=":material/sports_score:")
         
         tab13.image(f'{parent_folder}/assets/figures/race.jpg')
 
@@ -45,6 +46,7 @@ with tab2:
     if sel_race:
         race_id = races[races['Country'] == sel_race].iloc[0, 0]
         race_result = load_race_result(gp_id=(race_id-1), session="Q")
+        st.toast(f'Qualification result loaded', icon=":material/sports_score:")
         
         tab13.image(f'{parent_folder}/assets/figures/qualifying.jpg')
 

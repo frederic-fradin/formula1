@@ -1,3 +1,4 @@
+import fastf1
 import streamlit as st
 from datetime import datetime
 
@@ -9,6 +10,22 @@ current_year = today.year
 st.subheader(f"Formula 1 - Season {current_year}", divider="red", anchor=False)
 st.write('"Races are won at the track. Championships are won at the factory" Mercedes (2019)')
 st.space("small")
+
+list_season = [str(x) for x in range(2020, 2026, 1)]
+
+season_selection = st.sidebar.selectbox(label="Season", options=list_season, index=None, key='default_season')
+
+if season_selection:
+    st.session_state.my_season = int(season_selection)
+
+st.sidebar.write('')
+
+if st.sidebar.button('Show cash', width='stretch'):
+    cache_info = fastf1.Cache.get_cache_info()
+    st.sidebar.write(cache_info)
+
+if st.sidebar.button('Clear cache', width='stretch'):
+    fastf1.Cache.clear_cache()
 
 col11, col12, col13, col14 = st.columns([0.20, 0.40, 0.20, 0.20])
 
